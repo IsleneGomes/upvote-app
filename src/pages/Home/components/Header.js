@@ -1,5 +1,5 @@
 import React from 'react';
-import logotipo from '../components/download.jpeg'
+import logotipo from '../components/images.png'
 
 export default function Header() {
   return (
