@@ -11,35 +11,40 @@ const myStyles = makeStyles({
   },
   mainlogo: {
     backgroundColor: '#676b6b',
-    height: '88vh',
+    height: '100vh',
     width: '100vh',
-    padding: '2% 10%'
+    flexDirection: 'column',
+    // padding: '2% 10%'
+    flexGrow: 1,
+    flexBasis: '70%',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   logo: {
-    margin: '35% 0',
-    width: '90vh',
-    height: '20vh',
+    width: '80%',
+    height: '25%',
+    margin: '25% 5%',
   },
   form: {
     display: 'flex',
+    flexBasis: '30%',
     flexDirection: 'column',
-    alignItems: 'cen',
-    margin:'70% 15%',
-    width: '60vh',
-    height: 0,
-    backgroundColor: '#676b6b', 
+    padding: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   format: {
+    background: '#cfcece',
     marginTop: 5,
     textAlign: 'center',
-    background: '#cfcece',
+    width: '59vh'
   },
   button: {
-    marginTop: 20,
     backgroundColor: '#676b6b',
-    color: 'white',
     border: 'none',
     boxShadow: '3px 2px 2px 1px #cfcece',
+    color: 'white',
+    marginTop: 20,
     width: '60vh',
   }
 });
@@ -49,6 +54,7 @@ export default function index() {
   const classes = myStyles();
   return (
     <div className={classes.root}>
+      
       <div className={classes.mainlogo}>
         <img
           className={classes.logo}
@@ -56,10 +62,13 @@ export default function index() {
           alt='logotipo da Segware do Brasil'
         />
       </div>
-      <div>
-        <form className={classes.form}>
-          <
-            input type='text' placeholder='Digite seu username' className={classes.format}
+      
+      <div className={classes.form}>
+        <form>
+          <input
+              type='text'
+              placeholder='Digite seu username'
+              className={classes.format}
           />
           <
             input type='password' placeholder='Digite a senha' className={classes.format}
@@ -69,8 +78,9 @@ export default function index() {
               Entrar
             </Button>
           </Link>
-        </form>
+        </form>      
       </div>
+    
     </div>
   )
 }
