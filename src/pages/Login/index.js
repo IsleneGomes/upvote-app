@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../Home/components/unnamed.png';
 import { makeStyles } from '@material-ui/styles';
 import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+// import { useContext } from 'react';
+// import Context from '../../context/ContextUpvote';
+import axios from '../../utils/axios';
 
 const myStyles = makeStyles({
   root: {
@@ -14,7 +17,6 @@ const myStyles = makeStyles({
     height: '100vh',
     width: '100vh',
     flexDirection: 'column',
-    // padding: '2% 10%'
     flexGrow: 1,
     flexBasis: '70%',
     justifyContent: 'center',
@@ -49,8 +51,18 @@ const myStyles = makeStyles({
   }
 });
 
+export default function Login() {
+  // const {setUser, user } = useContext(Context);
+  // const { setPassword, password } = useContext(Context);
+  // const handleclick = useContext(Context);
+  const [user, setUser] = useState({});
+  const [password, setPassword] = useState({});
 
-export default function index() {
+  const handleclick = async () => {
+    const response = await axios.post('/api/sign-in')
+    setUser(response.data)
+  }
+
   const classes = myStyles();
   return (
     <div className={classes.root}>
@@ -67,14 +79,29 @@ export default function index() {
         <form>
           <input
               type='text'
+              // name='username'
               placeholder='Digite seu username'
               className={classes.format}
+              value={user}
+              onChange={(event) => setUser(event.target.value)}
+              required
           />
-          <
-            input type='password' placeholder='Digite a senha' className={classes.format}
+          <input
+            type='password'
+            // name='password'
+            placeholder='Digite a senha'
+            className={classes.format}
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            required
           />
-          <Link to='/'>
-            <Button color='primary' variant='contained' className={classes.button}>
+          <Link to='/home'>
+            <Button
+              color='primary'
+              variant='contained'
+              className={classes.button}
+              onClick={handleclick}
+            >
               Entrar
             </Button>
           </Link>

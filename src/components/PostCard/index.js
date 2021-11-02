@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { IconButton } from '@material-ui/core';
+// import Context from '../../context/Context';
 
 const myStyles = makeStyles({
   root: {
@@ -35,8 +36,14 @@ const myStyles = makeStyles({
   },
 });
 
-
 export default function PostCard({post}) {
+  // const { user } = useContext(Context);
+
+  const handleclick = (contador) => {
+    contador  = 0
+    return contador += 1;
+  }
+
 const classes = myStyles();
   return (
     <Card className={classes.root}>
@@ -69,7 +76,7 @@ const classes = myStyles();
           <FavoriteIcon />
         </IconButton>
         <Typography style={{cursor: 'pointer'}} color='textSecondary' variant='body2'>
-          {}
+          {() => handleclick}
         </Typography>
       </CardActions>
     </Card>

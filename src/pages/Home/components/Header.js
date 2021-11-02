@@ -33,11 +33,14 @@ const myStyles = makeStyles({
 });
 
 export default function Header() {
+
   const classes = myStyles();
+  // const user = useState(state => state.state)
+  // console.log(user)
   return (
     <AppBar position="fixed" color="inherit" className={classes.appBar}>
         <Toolbar>
-          <a href='/'>
+          <a href='/home'>
             <img src={ logotipo } alt='logotipo da Segware do Brasil' width='150px' />
           </a>
           <div className={classes.grow}></div>
@@ -51,7 +54,7 @@ export default function Header() {
             <SvgIcon>
               <Bell></Bell>
             </SvgIcon>
-            <Link to='/login'>
+            <Link to='/'>
               <Avatar alt='Avatar do usuário' src='' className={classes.bell}>
               </Avatar>
             </Link>
