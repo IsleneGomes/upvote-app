@@ -1,35 +1,37 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Context from './ContextUpvote';
-// import axios from 'axios';
-import axios from '../utils/axios';
 
 export default function ProviderUpvote({ children }) {
-  const [user, setUser] = useState({});
-  const [password, setPassword] = useState({});
-
-  const handleclick = async () => {
-    const response = await axios.post('/api/sign-in')
-    setUser(response.data)
-  }
+  const [user, setUser] = useState('');
+  const [password, setPassword] = useState('');
+   const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
 
   // useEffect(() => {
   //   const getAPI = async () => {
-  //     const endpoint = 'http://segware-book-api.segware.io/api';
-  //     const { data } = await fetch(endpoint).then((api) => api.json());
-  //     setData(data);
+  //     const endpoint = 'http://segware-book-api.segware.io/api/sign-in';
+  //     const result = await fetch(endpoint)
+  //     const data = await result.json();
+  //     console.log(data)
+  //     setUser(data);
   //   };
   //   getAPI();
   // })
-  const contexto = {
+
+   const context = {
     user,
     setUser,
-    handleclick,
     password,
-    setPassword
-  }
+    setPassword,
+    content,
+    setContent,
+    title,
+    setTitle,
+  };
+
   return (
-    <Context.Provider value={ contexto }>
+    <Context.Provider value={ context }>
       { children }
     </Context.Provider>
   )

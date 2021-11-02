@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { IconButton } from '@material-ui/core';
-// import Context from '../../context/Context';
+import Context from '../../context/ContextUpvote';
 
 const myStyles = makeStyles({
   root: {
@@ -37,7 +37,7 @@ const myStyles = makeStyles({
 });
 
 export default function PostCard({post}) {
-  // const { user } = useContext(Context);
+  const { user } = useContext(Context);
 
   const handleclick = (contador) => {
     contador  = 0
@@ -57,7 +57,7 @@ const classes = myStyles();
             {'Avaliado por'}
           </Typography>
           <Typography variant='subtitle2' className={classes.caption}>
-            {post.authorId}
+            {user}
           </Typography>
           <Typography variant='caption' className={classes.caption}>{post.date}</Typography>
         </div>

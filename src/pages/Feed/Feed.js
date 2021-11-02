@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import PostCard from '../../../components/PostCard/index';
+import PostCard from '../../components/PostCard/index';
+import { Box, Container } from '@material-ui/core';
 // import api from '../../../service/api';
 
 const myStyles = makeStyles({
@@ -19,8 +20,12 @@ const api = [
 export default function Feed() {
 const classes = myStyles();
   return (
-    <div className={classes.root}>
-     { api.map(post => <PostCard key={post.id} post={post} /> )}
-    </div>
+    <Container>
+      <Box>
+        <div className={classes.root}>
+        { api.map(post => <PostCard key={post.id} post={post} /> )}
+        </div>
+      </Box>
+    </Container>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import ProviderUpvote from './context/ProviderUpvote'
 // import Login from './pages/Login/index';
 
 import './mock';
@@ -7,9 +7,9 @@ import AllRotes from './routes/AllRotes';
 
 function App() { 
   return (
-    <BrowserRouter>
+    <ProviderUpvote>
       <AllRotes />
-    </BrowserRouter>
+    </ProviderUpvote>
   )
 }
 

@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+// import { useState} from 'react';
 import logo from '../Home/components/unnamed.png';
 import { makeStyles } from '@material-ui/styles';
 import { Button } from '@material-ui/core';
-import { Link } from 'react-router-dom';
-// import { useContext } from 'react';
-// import Context from '../../context/ContextUpvote';
-import axios from '../../utils/axios';
+import { useHistory } from 'react-router-dom';
+import { useContext } from 'react';
+import Context from '../../context/ContextUpvote';
+// import axios from '../../utils/axios';
+// import authService from '../../services/authService';
 
 const myStyles = makeStyles({
   root: {
@@ -51,16 +53,22 @@ const myStyles = makeStyles({
   }
 });
 
-export default function Login() {
-  // const {setUser, user } = useContext(Context);
-  // const { setPassword, password } = useContext(Context);
-  // const handleclick = useContext(Context);
-  const [user, setUser] = useState({});
-  const [password, setPassword] = useState({});
+function Login() {
+  const {setUser, user, password, setPassword } = useContext(Context);
+   // const [user, setUser] = useState();
+  // const [password, setPassword] = useState();
+  const history = useHistory();
 
   const handleclick = async () => {
-    const response = await axios.post('/api/sign-in')
-    setUser(response.data)
+  try {
+    history.push('/home');
+    console.log('CLICK')
+    // const userData = await authService.signIn(user, password);
+    setUser(user);
+    console.log(user)
+  } catch (error) {
+    console.log('Erro: Deu ruim');
+  }
   }
 
   const classes = myStyles();
@@ -79,7 +87,6 @@ export default function Login() {
         <form>
           <input
               type='text'
-              // name='username'
               placeholder='Digite seu username'
               className={classes.format}
               value={user}
@@ -88,26 +95,25 @@ export default function Login() {
           />
           <input
             type='password'
-            // name='password'
             placeholder='Digite a senha'
             className={classes.format}
             value={password}
             onChange={(event) => setPassword(event.target.value)}
             required
           />
-          <Link to='/home'>
-            <Button
-              color='primary'
-              variant='contained'
-              className={classes.button}
-              onClick={handleclick}
-            >
-              Entrar
-            </Button>
-          </Link>
+          <Button
+            color='primary'
+            variant='contained'
+            className={classes.button}
+            onClick={handleclick}
+          >
+            Entrar
+          </Button>
         </form>      
       </div>
     
     </div>
   )
 }
+
+export default Login;
