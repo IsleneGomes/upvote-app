@@ -7,6 +7,7 @@ export default function ProviderUpvote({ children }) {
   const [password, setPassword] = useState('');
    const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [post, setPost] = ([]);
 
   // useEffect(() => {
   //   const getAPI = async () => {
@@ -28,6 +29,8 @@ export default function ProviderUpvote({ children }) {
     setContent,
     title,
     setTitle,
+    post,
+    setPost,
   };
 
   return (

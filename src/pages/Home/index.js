@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './components/Header/index';
-import Feed from '../Feed/Feed';
+import Feed from '../Home/components/Feed/Feed';
 import { makeStyles } from '@material-ui/styles';
 
 const myStyles = makeStyles({
@@ -24,7 +24,7 @@ function Home() {
       <Header />
       <div className={classes.toolbar}></div>
         <main className={classes.main}>
-
+          <Feed />
         </main>
     </div>
   )

@@ -19,7 +19,6 @@ export default function BtnPost() {
 const handleclick = async () => {
   try {
     history.push('/home/new');
-    console.log('CLICK')
     // const userData = await authService.signIn(user, password);
   } catch (error) {
     console.log('Erro: Deu ruim');
