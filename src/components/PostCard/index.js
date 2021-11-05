@@ -72,7 +72,7 @@ const classes = myStyles();
           <FavoriteIcon />
         </IconButton>
         <Typography style={{cursor: 'pointer'}} color='textSecondary' variant='body2'>
-          {() => handleclick}
+          {handleclick}
         </Typography>
       </CardActions>
     </Card>

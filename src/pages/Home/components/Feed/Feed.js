@@ -22,7 +22,7 @@ const classes = myStyles();
       <Box>
         <div className={classes.root}>
         { !post ? <h1>Loading...</h1>
-        : post.map(post => <PostCard key={post.id} post={post} /> )}
+        : post.map(post => <PostCard key={post.name} post={post} /> )}
         </div>
       </Box>
     </Container>

@@ -24,7 +24,7 @@ function Home() {
       <Header />
       <div className={classes.toolbar}></div>
         <main className={classes.main}>
-          <Feed />
+          
         </main>
     </div>
   )

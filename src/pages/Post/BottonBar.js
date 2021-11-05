@@ -21,14 +21,7 @@ const myStyles = makeStyles({
 
 export default function BottonBar() {
   const classes = myStyles();
-    const {
-    user,
-    title,
-    content,
-    setPost,
-  } = useContext(ContextUpvote);
 
-  const contexto = { user, title, content }
   const history = useHistory()
 
   const handleSaveDraft = () => {
@@ -36,7 +29,6 @@ export default function BottonBar() {
   };
   const handlePublish = () => {
       history.push('/home')
-      setPost(contexto);
   };
 
   return (
